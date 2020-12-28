@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FishMigrationController;
+use App\Http\Controllers\FishnewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,4 @@ Route::get('/', function () {
 });
 
 Route::get('/fish', [FishMigrationController::class, 'index']);
+Route::get('/fishnew', [FishnewController::class, 'index']);
