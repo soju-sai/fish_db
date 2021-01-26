@@ -32,4 +32,24 @@ class FishOriginController extends Controller
             $fishSpecies->save();
         }
     }
+
+    // Prove the one has many relationship
+    public function testHasManyAssocitate(Request $request)
+    {
+        $fishes = FishSpecies::find(381005)->fish_species_world_dists;
+        foreach ($fishes as $fish) {
+            # code...
+            echo $fish->world_dist_id . '<br>';
+        }
+    }
+
+    // Prove the many to many relationship
+    public function testManyToManyAssocitate(Request $request)
+    {
+        $fishes = FishSpecies::find(381005)->lk_worlddists;
+        echo '381005 這條魚分布在以下地點：<br>';
+        foreach ($fishes as $fish) {
+            echo $fish->alias . ' ' . $fish->cdescription . '<br>';
+        }
+    }
 }

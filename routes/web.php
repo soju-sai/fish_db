@@ -29,3 +29,5 @@ Route::get('/newfishdb', [NewFishdbController::class, 'store']);
 Route::get('/worlddist-init', [LkWorldDistController::class, 'init']);
 Route::get('/origin', [FishOriginController::class, 'oldToNew']);
 Route::get('/fish-worldist', [FishSpeciesWorldDistController::class, 'showDist']);
+Route::get('/fish-hasmany', [FishOriginController::class, 'testHasManyAssocitate']);
+Route::get('/fish-many2many', [FishOriginController::class, 'testManyToManyAssocitate']);
