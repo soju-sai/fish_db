@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class LkWorldDist extends Model
+class WorldDist extends Model
 {
     //
     protected $connection = 'mysql_new';
-    protected $table = 'lk_world_dist';
+    // protected $table = 'lk_world_dist';
     /**
      * The attributes that aren't mass assignable.
      *
@@ -20,5 +20,5 @@ class LkWorldDist extends Model
      *
      * @var array
      */
-    protected $fillable = ['id', 'alias', 'cdescription', 'edescription'];
+    protected $fillable = ['id', 'alias', 'distribution_c', 'distribution_e'];
 }

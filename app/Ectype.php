@@ -4,8 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class NewFishdb extends Model
+class Ectype extends Model
 {
     //
-    protected $table = 'new_fishdb';
 }

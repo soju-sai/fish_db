@@ -9,7 +9,7 @@ use App\FishSpeciesWorldDist;
 class FishSpeciesWorldDistController extends Controller
 {
     // 取出id和worlddist_id放到fish_species_world_dist
-    public function showDist(Request $request)
+    public function insertFishDist(Request $request)
     {
         // Validate the request...
         // $fishSpecies = FishSpecies::limit(5)->get();
@@ -32,8 +32,8 @@ class FishSpeciesWorldDistController extends Controller
                     foreach ($worlddist_array as $wa)
                     {
                         $fishSpeciesWorldDist = FishSpeciesWorldDist::create([
-                            'fish_id' => $fish->id,
-                            'world_dist_id' => $wa
+                            'fish_species_id' => $fish->id,
+                            'world_dists_id' => $wa
                         ]);
                         $fishSpeciesWorldDist->save();
                     }

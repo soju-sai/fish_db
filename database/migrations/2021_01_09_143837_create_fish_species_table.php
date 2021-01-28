@@ -16,20 +16,23 @@ class CreateFishSpeciesTable extends Migration
         Schema::connection('mysql_new')->create('fish_species', function (Blueprint $table) {
             $table->id();
             $table->string('worlddist',50)->nullable();
+            $table->tinyInteger('ec_type_id')->nullable()->comment('生態類型id');
+            $table->integer('depth_top')->nullable()->comment('棲息頂端深度');
+            $table->integer('depth_bottom')->nullable()->comment('棲息底端深度');
             $table->timestamps();
         });
 
-        Schema::connection('mysql_new')->create('fish_species_world_dist', function (Blueprint $table) {
-            $table->integer('fish_id');
-            $table->integer('world_dist_id');
+        Schema::connection('mysql_new')->create('fish_species_world_dists', function (Blueprint $table) {
+            $table->integer('fish_species_id');
+            $table->integer('world_dists_id');
             $table->timestamps();
         });
 
-        Schema::connection('mysql_new')->create('lk_world_dist', function (Blueprint $table) {
+        Schema::connection('mysql_new')->create('world_dists', function (Blueprint $table) {
             $table->id();
             $table->string('alias',20);
-            $table->string('cdescription',50);
-            $table->string('edescription',50);
+            $table->string('distribution_c',50);
+            $table->string('distribution_e',50);
             $table->timestamps();
         });
     }
@@ -42,7 +45,7 @@ class CreateFishSpeciesTable extends Migration
     public function down()
     {
         Schema::connection('mysql_new')->dropIfExists('fish_species');
-        Schema::connection('mysql_new')->dropIfExists('fish_species_world_dist');
-        Schema::connection('mysql_new')->dropIfExists('lk_world_dist');
+        Schema::connection('mysql_new')->dropIfExists('fish_species_world_dists');
+        Schema::connection('mysql_new')->dropIfExists('world_dists');
     }
 }
