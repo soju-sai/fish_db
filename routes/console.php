@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 use App\Console\Commands\InitWorldDist;
+use App\Console\Commands\MapSpeciesWorldDist;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,12 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
 
-Artisan::command('init:worlddist', function () {
+Artisan::command('fishdb:init-worlddist', function () {
     $initWorldDist = new InitWorldDist;
     $initWorldDist->handle();
 })->describe('initial the record in world_dist table.');
+
+Artisan::command('fishdb:map-species-worlddist', function () {
+    $mapSpeciesWorldDist = new MapSpeciesWorldDist;
+    $mapSpeciesWorldDist->handle();
+})->describe('Map relationship between species and worlddist, and insert data to species-worlddists table');
