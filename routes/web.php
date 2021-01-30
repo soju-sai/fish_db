@@ -23,8 +23,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/origin', [FishOriginController::class, 'oldToNew']);
-Route::get('/worlddist-init', [WorldDistController::class, 'init']);
-Route::get('/fish-worldist', [FishSpeciesWorldDistController::class, 'insertFishDist']);
 Route::get('/fish-hasmany', [FishOriginController::class, 'testHasManyAssocitate']);
 Route::get('/fish-many2many', [FishOriginController::class, 'testManyToManyAssocitate']);
