@@ -25,4 +25,14 @@ class FishSpecies extends Model
     {
         return $this->belongsTo(EcType::class);
     }
+
+    public function fish_species_tw_dists()
+    {
+        return $this->hasMany(FishSpeciesTwDist::class);
+    }
+
+    public function tw_dists()
+    {
+        return $this->belongsToMany(TwDist::class, 'fish_species_tw_dists', 'fish_species_id', 'tw_dists_id');
+    }
 }

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Artisan;
 use App\Console\Commands\InitWorldDist;
 use App\Console\Commands\MapSpeciesWorldDist;
 use App\Console\Commands\ReorganizeFishSpecies;
+use App\Console\Commands\MapMany2ManyRelation;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +41,8 @@ Artisan::command('fishdb:reorganize-species-depth', function () {
     $reorganizeFishSpecies = new ReorganizeFishSpecies;
     $reorganizeFishSpecies->handleDepth();
 })->describe('Import depth data into fish_species table');
+
+Artisan::command('fish:map-many2many-species-twdists', function () {
+    $mapMany2ManyRelation = new MapMany2ManyRelation;
+    $mapMany2ManyRelation->handleFishSpeciesTwDists();
+})->describe('Map relationship between species and twdists');

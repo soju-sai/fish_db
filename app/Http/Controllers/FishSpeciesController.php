@@ -48,4 +48,15 @@ class FishSpeciesController extends Controller
         echo '棲息頂端深度：' . $fishes->depth_top . ' m <br>';
         echo '棲息底端深度：' . $fishes->depth_bottom . ' m';
     }
+
+    // Prove the many to many tw_dists
+    public function testManyToManyTwDist(Request $request)
+    {
+        $id = 380712;
+        $fishes = FishSpecies::find($id)->tw_dists;
+        echo $id . ' 這條魚分布在以下地點：<br>';
+        foreach ($fishes as $fish) {
+            echo $fish->tw_dist_c . ',' . '<br>';
+        }
+    }
 }
