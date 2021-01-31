@@ -38,4 +38,14 @@ class FishSpeciesController extends Controller
             echo $fish->alias . ' ' . $fish->distribution_c . '<br>';
         }
     }
+
+    // Show depth data
+    public function testDepth(Request $request)
+    {
+        $id = 380709;
+        $fishes = FishSpecies::find($id);
+        echo $id . ' 這條魚<br>';
+        echo '棲息頂端深度：' . $fishes->depth_top . ' m <br>';
+        echo '棲息底端深度：' . $fishes->depth_bottom . ' m';
+    }
 }

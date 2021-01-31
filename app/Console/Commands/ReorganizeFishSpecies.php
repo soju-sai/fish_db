@@ -64,4 +64,28 @@ class ReorganizeFishSpecies extends Command
         echo 'It takes ' . $executionTime . " seconds to execute the script\n";
         return 0;
     }
+
+    public function handleDepth()
+    {
+        // execution timer
+        $startTime = microtime(true);
+
+        FishOrigin::chunk(200, function ($fishOrigins) {
+            foreach ($fishOrigins as $fishOrigin) {
+                $fishSpecie = FishSpecies::find($fishOrigin->id);
+                $fishSpecie->depth_top = $fishOrigin->depth_upper;
+                $depthDown = $fishOrigin->depth_down;
+                if (!is_null($depthDown) && !is_numeric($depthDown)) {
+                    $depthDown = 99999;
+                }
+                $fishSpecie->depth_bottom = $depthDown;
+                $fishSpecie->save();
+            }
+        });
+        $endTime = microtime(true);
+        $executionTime = ($endTime - $startTime);
+
+        echo 'It takes ' . $executionTime . " seconds to execute the script\n";
+        return 0;
+    }
 }

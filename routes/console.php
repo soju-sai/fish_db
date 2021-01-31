@@ -35,3 +35,8 @@ Artisan::command('fishdb:reorganize-species-ectype', function () {
     $reorganizeFishSpecies = new ReorganizeFishSpecies;
     $reorganizeFishSpecies->handleEctype();
 })->describe('Reorganize ectype column in fish_species table');
+
+Artisan::command('fishdb:reorganize-species-depth', function () {
+    $reorganizeFishSpecies = new ReorganizeFishSpecies;
+    $reorganizeFishSpecies->handleDepth();
+})->describe('Import depth data into fish_species table');

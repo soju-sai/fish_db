@@ -21,4 +21,4 @@ Route::get('/', function () {
 Route::get('/fish-hasmany', [FishSpeciesController::class, 'testHasManyAssocitate']);
 Route::get('/fish-many2many', [FishSpeciesController::class, 'testManyToManyAssocitate']);
 Route::get('/fish-ectype', [FishSpeciesController::class, 'testHasOneEctype']);
-
+Route::get('/fish-depth', [FishSpeciesController::class, 'testDepth']);
