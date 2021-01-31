@@ -4,6 +4,7 @@ use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 use App\Console\Commands\InitWorldDist;
 use App\Console\Commands\MapSpeciesWorldDist;
+use App\Console\Commands\ReorganizeFishSpecies;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,8 @@ Artisan::command('fishdb:map-species-worlddist', function () {
     $mapSpeciesWorldDist = new MapSpeciesWorldDist;
     $mapSpeciesWorldDist->handle();
 })->describe('Map relationship between species and worlddist, and insert data to species-worlddists table');
+
+Artisan::command('fishdb:reorganize-species-ectype', function () {
+    $reorganizeFishSpecies = new ReorganizeFishSpecies;
+    $reorganizeFishSpecies->handleEctype();
+})->describe('Reorganize ectype column in fish_species table');

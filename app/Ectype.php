@@ -4,7 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Ectype extends Model
+class EcType extends Model
 {
     //
+    protected $connection = 'mysql_new';
+
 }

@@ -1,12 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FishMigrationController;
-use App\Http\Controllers\FishnewController;
-use App\Http\Controllers\NewFishdbController;
-use App\Http\Controllers\WorldDistController;
-use App\Http\Controllers\FishOriginController;
-use App\Http\Controllers\FishSpeciesWorldDistController;
+use App\Http\Controllers\FishSpeciesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,5 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/fish-hasmany', [FishOriginController::class, 'testHasManyAssocitate']);
-Route::get('/fish-many2many', [FishOriginController::class, 'testManyToManyAssocitate']);
+Route::get('/fish-hasmany', [FishSpeciesController::class, 'testHasManyAssocitate']);
+Route::get('/fish-many2many', [FishSpeciesController::class, 'testManyToManyAssocitate']);
+Route::get('/fish-ectype', [FishSpeciesController::class, 'testHasOneEctype']);
+

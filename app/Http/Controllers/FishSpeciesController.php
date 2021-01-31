@@ -5,23 +5,35 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\FishSpecies;
 
-class FishOriginController extends Controller
+class FishSpeciesController extends Controller
 {
     // Prove the one has many relationship
     public function testHasManyAssocitate(Request $request)
     {
+        $id = 381005;
         $fishes = FishSpecies::find(381005)->fish_species_world_dists;
+        echo 'Fish ID: ' . $id . '<br>';
         foreach ($fishes as $fish) {
             # code...
             echo $fish->world_dists_id . '<br>';
         }
     }
 
+    // Generate a visible result between these two tables: fish_species and ec_types
+    public function testHasOneEctype(Request $request)
+    {
+        $id = 395484;
+        $fish = FishSpecies::find($id)->ec_type;
+        echo 'Fish ID: ' . $id . '<br>';
+        echo '的生態類型為： ' . $fish->ec_type;
+    }
+
     // Prove the many to many relationship
     public function testManyToManyAssocitate(Request $request)
     {
-        $fishes = FishSpecies::find(381005)->worlddists;
-        echo '381005 這條魚分布在以下地點：<br>';
+        $id = 381005;
+        $fishes = FishSpecies::find($id)->worlddists;
+        echo $id . ' 這條魚分布在以下地點：<br>';
         foreach ($fishes as $fish) {
             echo $fish->alias . ' ' . $fish->distribution_c . '<br>';
         }

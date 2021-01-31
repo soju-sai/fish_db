@@ -8,7 +8,7 @@ class FishSpecies extends Model
 {
     //
     protected $connection = 'mysql_new';
-    protected $fillable = ['id', 'worlddist'];
+    protected $fillable = ['id', 'worlddist', 'ec_type_id'];
 
     public function fish_species_world_dists()
     {
@@ -19,5 +19,10 @@ class FishSpecies extends Model
     public function worlddists()
     {
         return $this->belongsToMany(WorldDist::class, 'fish_species_world_dists', 'fish_species_id', 'world_dists_id');
+    }
+
+    public function ec_type()
+    {
+        return $this->belongsTo(EcType::class);
     }
 }
