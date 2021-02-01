@@ -59,4 +59,15 @@ class FishSpeciesController extends Controller
             echo $fish->tw_dist_c . ',' . '<br>';
         }
     }
+
+    // Prove the many to many fish_types
+    public function testManyToManyFishType(Request $request)
+    {
+        $id = 380756;
+        $fishes = FishSpecies::find($id)->fish_types;
+        echo $id . ' 這條魚的種類為：<br>';
+        foreach ($fishes as $fish) {
+            echo $fish->fish_type_c . ',' . '<br>';
+        }
+    }
 }

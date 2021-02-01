@@ -35,4 +35,14 @@ class FishSpecies extends Model
     {
         return $this->belongsToMany(TwDist::class, 'fish_species_tw_dists', 'fish_species_id', 'tw_dists_id');
     }
+
+    public function fish_species_fish_types()
+    {
+        return $this->hasMany(FishSpeciesFishType::class);
+    }
+
+    public function fish_types()
+    {
+        return $this->belongsToMany(FishType::class, 'fish_species_fish_types', 'fish_species_id', 'fish_types_id');
+    }
 }
