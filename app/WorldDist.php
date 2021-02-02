@@ -8,7 +8,7 @@ class WorldDist extends Model
 {
     //
     protected $connection = 'mysql_new';
-    // protected $table = 'lk_world_dist';
+
     /**
      * The attributes that aren't mass assignable.
      *

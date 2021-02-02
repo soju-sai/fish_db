@@ -8,5 +8,6 @@ class FishSpeciesWorldDist extends Model
 {
     //
     protected $connection = 'mysql_new';
-    protected $fillable = ['fish_species_id', 'world_dists_id'];
+    protected $table = 'fish_species_world_dist';
+    protected $fillable = ['fish_species_id', 'world_dist_id'];
 }

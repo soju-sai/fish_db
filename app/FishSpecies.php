@@ -8,7 +8,7 @@ class FishSpecies extends Model
 {
     //
     protected $connection = 'mysql_new';
-    protected $fillable = ['id', 'worlddist'];
+    protected $fillable = ['id', 'worlddist', 'ec_type_id'];
 
     public function fish_species_world_dists()
     {
@@ -16,8 +16,29 @@ class FishSpecies extends Model
         return $this->hasMany(FishSpeciesWorldDist::class);
     }
 
-    public function worlddists()
+    public function world_dists()
     {
-        return $this->belongsToMany(WorldDist::class, 'fish_species_world_dists', 'fish_species_id', 'world_dists_id');
+        return $this->belongsToMany(WorldDist::class);
+    }
+
+    public function ec_type()
+    {
+        return $this->belongsTo(EcType::class);
+    }
+
+    public function tw_dists()
+    {
+        return $this->belongsToMany(TwDist::class);
+    }
+
+    public function fish_types()
+    {
+        // Example: $this->belongsToMany(FishType::class, 'fish_species_fish_types', 'fish_species_id', 'fish_types_id');
+        return $this->belongsToMany(FishType::class);
+    }
+
+    public function habitats()
+    {
+        return $this->belongsToMany(Habitat::class);
     }
 }

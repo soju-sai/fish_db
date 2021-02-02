@@ -12,7 +12,7 @@ class InitWorldDist extends Command
      *
      * @var string
      */
-    protected $signature = 'init:worlddist';
+    protected $signature = 'fishdb:init-worlddist';
 
     /**
      * The console command description.
