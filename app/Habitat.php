@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class EcType extends Model
+class Habitat extends Model
 {
     //
-    protected $connection = 'mysql_new';
 
+    protected $connection = 'mysql_new';
 }

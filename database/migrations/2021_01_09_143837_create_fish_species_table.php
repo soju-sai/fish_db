@@ -22,12 +22,6 @@ class CreateFishSpeciesTable extends Migration
             $table->timestamps();
         });
 
-        Schema::connection('mysql_new')->create('fish_species_world_dists', function (Blueprint $table) {
-            $table->integer('fish_species_id');
-            $table->integer('world_dists_id');
-            $table->timestamps();
-        });
-
         Schema::connection('mysql_new')->create('world_dists', function (Blueprint $table) {
             $table->id();
             $table->string('alias',20);
@@ -45,7 +39,6 @@ class CreateFishSpeciesTable extends Migration
     public function down()
     {
         Schema::connection('mysql_new')->dropIfExists('fish_species');
-        Schema::connection('mysql_new')->dropIfExists('fish_species_world_dists');
         Schema::connection('mysql_new')->dropIfExists('world_dists');
     }
 }
