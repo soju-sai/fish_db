@@ -32,6 +32,26 @@ class ReorganizeFishSpecies extends Command
         parent::__construct();
     }
 
+    public function handleFishId()
+    {
+        // execution timer
+        $startTime = microtime(true);
+
+        FishOrigin::chunk(200, function ($fishOrigins) {
+            foreach ($fishOrigins as $fishOrigin) {
+                $fishSpecies = FishSpecies::create([
+                    'id' => $fishOrigin->id
+                ]);
+                $fishSpecies->save();
+            }
+        });
+        $endTime = microtime(true);
+        $executionTime = ($endTime - $startTime);
+
+        echo 'It takes ' . $executionTime . " seconds to execute the script\n";
+        return 0;
+    }
+
     /**
      * Execute the console command.
      *

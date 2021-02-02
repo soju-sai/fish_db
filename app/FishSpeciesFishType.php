@@ -8,5 +8,6 @@ class FishSpeciesFishType extends Model
 {
     //
     protected $connection = 'mysql_new';
-    protected $fillable = ['fish_species_id', 'fish_types_id'];
+    protected $table = 'fish_species_fish_type';
+    protected $fillable = ['fish_species_id', 'fish_type_id'];
 }

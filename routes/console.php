@@ -22,6 +22,11 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
 
+Artisan::command('fishdb:init-fishid', function () {
+    $reorganizeFishSpecies = new ReorganizeFishSpecies;
+    $reorganizeFishSpecies->handleFishId();
+})->describe('initial the record in fish_species table.');
+
 Artisan::command('fishdb:init-worlddist', function () {
     $initWorldDist = new InitWorldDist;
     $initWorldDist->handle();
@@ -42,17 +47,17 @@ Artisan::command('fishdb:reorganize-species-depth', function () {
     $reorganizeFishSpecies->handleDepth();
 })->describe('Import depth data into fish_species table');
 
-Artisan::command('fish:map-many2many-species-twdists', function () {
+Artisan::command('fish:map-many2many-species-twdist', function () {
     $mapMany2ManyRelation = new MapMany2ManyRelation;
-    $mapMany2ManyRelation->handleFishSpeciesTwDists();
-})->describe('Map relationship between species and twdists');
+    $mapMany2ManyRelation->handleFishSpeciesTwDist();
+})->describe('Map relationship between species and twdist');
 
-Artisan::command('fish:map-many2many-species-fishtypes', function () {
+Artisan::command('fish:map-many2many-species-fishtype', function () {
     $mapMany2ManyRelation = new MapMany2ManyRelation;
-    $mapMany2ManyRelation->handleFishSpeciesFishTypes();
-})->describe('Map relationship between species and fish_types');
+    $mapMany2ManyRelation->handleFishSpeciesFishType();
+})->describe('Map relationship between species and fish_type');
 
-Artisan::command('fish:map-many2many-species-habitats', function () {
+Artisan::command('fish:map-many2many-species-habitat', function () {
     $mapMany2ManyRelation = new MapMany2ManyRelation;
     $mapMany2ManyRelation->handleFishSpeciesHabitat();
-})->describe('Map relationship between species and habitats');
+})->describe('Map relationship between species and habitat');

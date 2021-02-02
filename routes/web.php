@@ -18,8 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/fish-hasmany', [FishSpeciesController::class, 'testHasManyAssocitate']);
-Route::get('/fish-many2many', [FishSpeciesController::class, 'testManyToManyAssocitate']);
+Route::get('/fish-hasmany-species-worlddist', [FishSpeciesController::class, 'testHasManySpeciesWorlddist']);
+Route::get('/fish-n2m-worlddist', [FishSpeciesController::class, 'testManyToManyWorldDist']);
 Route::get('/fish-ectype', [FishSpeciesController::class, 'testHasOneEctype']);
 Route::get('/fish-depth', [FishSpeciesController::class, 'testDepth']);
 Route::get('/fish-n2m-twdist', [FishSpeciesController::class, 'testManyToManyTwDist']);

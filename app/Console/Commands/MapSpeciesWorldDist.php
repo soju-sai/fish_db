@@ -46,7 +46,7 @@ class MapSpeciesWorldDist extends Command
                 $worlddist = str_replace('、', ',', $worlddist);
                 $worlddist = str_replace('西太平洋', '18', $worlddist);
                 $worlddist = str_replace('印度太平洋區', '3', $worlddist);
-                $worlddist = str_replace('中美洲哥斯達黎加至宏都拉斯', '999', $worlddist);
+                $worlddist = str_replace('中美洲哥斯達黎加至宏都拉斯', '99999', $worlddist);
 
                 // 以逗號分隔索引鍵字串，讓各索引鍵成為單獨一筆資料
                 $worlddist_array = explode(',', $worlddist);
@@ -54,7 +54,7 @@ class MapSpeciesWorldDist extends Command
                 {
                     $fishSpeciesWorldDist = FishSpeciesWorldDist::create([
                         'fish_species_id' => $fish->id,
-                        'world_dists_id' => $wa
+                        'world_dist_id' => $wa
                     ]);
                     $fishSpeciesWorldDist->save();
                 }

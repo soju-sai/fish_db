@@ -7,15 +7,15 @@ use App\FishSpecies;
 
 class FishSpeciesController extends Controller
 {
-    // Prove the one has many relationship
-    public function testHasManyAssocitate(Request $request)
+    // Prove the one has many relationship of Worlddist
+    public function testHasManySpeciesWorlddist(Request $request)
     {
         $id = 381005;
         $fishes = FishSpecies::find(381005)->fish_species_world_dists;
         echo 'Fish ID: ' . $id . '<br>';
         foreach ($fishes as $fish) {
             # code...
-            echo $fish->world_dists_id . '<br>';
+            echo $fish->world_dist_id . '<br>';
         }
     }
 
@@ -28,11 +28,11 @@ class FishSpeciesController extends Controller
         echo '的生態類型為： ' . $fish->ec_type;
     }
 
-    // Prove the many to many relationship
-    public function testManyToManyAssocitate(Request $request)
+    // Prove the many to many relationship of species and world_dists
+    public function testManyToManyWorldDist(Request $request)
     {
         $id = 381005;
-        $fishes = FishSpecies::find($id)->worlddists;
+        $fishes = FishSpecies::find($id)->world_dists;
         echo $id . ' 這條魚分布在以下地點：<br>';
         foreach ($fishes as $fish) {
             echo $fish->alias . ' ' . $fish->distribution_c . '<br>';

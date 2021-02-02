@@ -39,7 +39,7 @@ class MapMany2ManyRelation extends Command
      *
      * @return int
      */
-    public function handleFishSpeciesTwDists()
+    public function handleFishSpeciesTwDist()
     {
         // execution timer
         $startTime = microtime(true);
@@ -49,13 +49,12 @@ class MapMany2ManyRelation extends Command
                 foreach ($fishOrigins as $fishOrigin) {
                     $twdistArr = $fishOrigin->toArray(); // 只取得這些欄位的值，並轉換成陣列
                     $twdistArr = array_values($twdistArr); // 只取得欄位的值，用來判斷
-                    // var_dump($twdistArr);
+
                     for ($i=1; $i < count($twdistArr); $i++) {
                         if ($twdistArr[$i]) {
-                            // echo strval($key+1);
                             $fishSpeciesTwDist = FishSpeciesTwDist::create([
                                 'fish_species_id' => $twdistArr[0],
-                                'tw_dists_id' => $i
+                                'tw_dist_id' => $i
                             ]);
                             $fishSpeciesTwDist->save();
                         }
@@ -70,7 +69,7 @@ class MapMany2ManyRelation extends Command
         return 0;
     }
 
-    public function handleFishSpeciesFishTypes()
+    public function handleFishSpeciesFishType()
     {
         // execution timer
         $startTime = microtime(true);
@@ -84,7 +83,7 @@ class MapMany2ManyRelation extends Command
                         if ($fishTypeArr[$i]) {
                             $fishSpeciesFishType = FishSpeciesFishType::create([
                                 'fish_species_id' => $fishTypeArr[0],
-                                'fish_types_id' => $i
+                                'fish_type_id' => $i
                             ]);
                             $fishSpeciesFishType->save();
                         }

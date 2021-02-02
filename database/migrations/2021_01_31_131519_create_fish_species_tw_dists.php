@@ -13,9 +13,9 @@ class CreateFishSpeciesTwDists extends Migration
      */
     public function up()
     {
-        Schema::connection('mysql_new')->create('fish_species_tw_dists', function (Blueprint $table) {
+        Schema::connection('mysql_new')->create('fish_species_tw_dist', function (Blueprint $table) {
             $table->integer('fish_species_id');
-            $table->integer('tw_dists_id');
+            $table->integer('tw_dist_id');
             $table->timestamps();
         });
     }
