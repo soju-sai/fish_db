@@ -24,3 +24,4 @@ Route::get('/fish-ectype', [FishSpeciesController::class, 'testHasOneEctype']);
 Route::get('/fish-depth', [FishSpeciesController::class, 'testDepth']);
 Route::get('/fish-n2m-twdist', [FishSpeciesController::class, 'testManyToManyTwDist']);
 Route::get('/fish-n2m-fishtype', [FishSpeciesController::class, 'testManyToManyFishType']);
+Route::get('/fish-n2m-habitat', [FishSpeciesController::class, 'testManyToManyHabitat']);

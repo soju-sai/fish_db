@@ -51,3 +51,8 @@ Artisan::command('fish:map-many2many-species-fishtypes', function () {
     $mapMany2ManyRelation = new MapMany2ManyRelation;
     $mapMany2ManyRelation->handleFishSpeciesFishTypes();
 })->describe('Map relationship between species and fish_types');
+
+Artisan::command('fish:map-many2many-species-habitats', function () {
+    $mapMany2ManyRelation = new MapMany2ManyRelation;
+    $mapMany2ManyRelation->handleFishSpeciesHabitat();
+})->describe('Map relationship between species and habitats');

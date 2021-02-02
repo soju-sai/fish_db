@@ -45,4 +45,9 @@ class FishSpecies extends Model
     {
         return $this->belongsToMany(FishType::class, 'fish_species_fish_types', 'fish_species_id', 'fish_types_id');
     }
+
+    public function habitats()
+    {
+        return $this->belongsToMany(Habitat::class);
+    }
 }

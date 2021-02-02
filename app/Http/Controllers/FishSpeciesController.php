@@ -70,4 +70,15 @@ class FishSpeciesController extends Controller
             echo $fish->fish_type_c . ',' . '<br>';
         }
     }
+
+    // Prove the many to many fish_types
+    public function testManyToManyHabitat(Request $request)
+    {
+        $id = 380756;
+        $fishes = FishSpecies::find($id)->habitats;
+        echo $id . ' 這條魚的棲地分布於：<br>';
+        foreach ($fishes as $fish) {
+            echo $fish->habitat_c . ',' . '<br>';
+        }
+    }
 }
