@@ -26,3 +26,4 @@ Route::get('/fish-n2m-twdist', [FishSpeciesController::class, 'testManyToManyTwD
 Route::get('/fish-n2m-fishtype', [FishSpeciesController::class, 'testManyToManyFishType']);
 Route::get('/fish-n2m-habitat', [FishSpeciesController::class, 'testManyToManyHabitat']);
 Route::get('/fish-export-csv', [FishSpeciesController::class, 'exportCsv']);
+Route::get('/fish-detail-csv', [FishSpeciesController::class, 'exportDetailCsv']);
