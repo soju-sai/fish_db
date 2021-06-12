@@ -27,6 +27,6 @@ class CreateFishSpeciesWorldDist extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fish_species_world_dist');
+        Schema::connection('mysql_new')->dropIfExists('fish_species_world_dist');
     }
 }

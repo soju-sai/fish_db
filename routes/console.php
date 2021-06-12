@@ -24,7 +24,7 @@ Artisan::command('inspire', function () {
 
 Artisan::command('fishdb:init-fishid', function () {
     $reorganizeFishSpecies = new ReorganizeFishSpecies;
-    $reorganizeFishSpecies->handleFishId();
+    $reorganizeFishSpecies->handleFish1to1data();
 })->describe('initial the record in fish_species table.');
 
 Artisan::command('fishdb:init-worlddist', function () {

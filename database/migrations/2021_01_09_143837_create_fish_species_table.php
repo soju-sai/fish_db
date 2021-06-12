@@ -17,8 +17,8 @@ class CreateFishSpeciesTable extends Migration
             $table->id();
             $table->string('worlddist',50)->nullable();
             $table->tinyInteger('ec_type_id')->nullable()->comment('生態類型id');
-            $table->integer('depth_top')->nullable()->comment('棲息頂端深度');
-            $table->integer('depth_bottom')->nullable()->comment('棲息底端深度');
+            $table->integer('top_depth')->nullable()->comment('最高棲息深度');
+            $table->integer('bottom_depth')->nullable()->comment('最低棲息深度');
             $table->timestamps();
         });
 

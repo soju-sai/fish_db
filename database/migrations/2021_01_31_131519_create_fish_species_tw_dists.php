@@ -27,6 +27,6 @@ class CreateFishSpeciesTwDists extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fish_species_tw_dist');
+        Schema::connection('mysql_new')->dropIfExists('fish_species_tw_dist');
     }
 }

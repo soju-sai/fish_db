@@ -8,7 +8,10 @@ class FishSpecies extends Model
 {
     //
     protected $connection = 'mysql_new';
-    protected $fillable = ['id', 'worlddist', 'ec_type_id'];
+    protected $fillable = ['id', 'worlddist', 'ec_type_id', 'character', 'character_e',
+    'distribution', 'distribution_e', 'habitat', 'habitat_e', 'utility', 'utility_e',
+    'economic', 'is_year', 'reference', 'ref_short', 'holotype_loca', 'holotype_loca_e',
+    'maxlength', 'memo'];
 
     public function fish_species_world_dists()
     {

@@ -32,7 +32,7 @@ class ReorganizeFishSpecies extends Command
         parent::__construct();
     }
 
-    public function handleFishId()
+    public function handleFish1to1data()
     {
         // execution timer
         $startTime = microtime(true);
@@ -40,7 +40,23 @@ class ReorganizeFishSpecies extends Command
         FishOrigin::chunk(200, function ($fishOrigins) {
             foreach ($fishOrigins as $fishOrigin) {
                 $fishSpecies = FishSpecies::create([
-                    'id' => $fishOrigin->id
+                    'id' => $fishOrigin->id,
+                    'character' => $fishOrigin->character,
+                    'character_e' => $fishOrigin->character_e,
+                    'distribution' => $fishOrigin->distribution,
+                    'distribution_e' => $fishOrigin->distribution_e,
+                    'habitat' => $fishOrigin->habitat,
+                    'habitat_e' => $fishOrigin->habitat_e,
+                    'utility' => $fishOrigin->utility,
+                    'utility_e' => $fishOrigin->utility_e,
+                    'economic' => $fishOrigin->economic,
+                    'is_year' => $fishOrigin->is_year,
+                    'reference' => $fishOrigin->reference,
+                    'ref_short' => $fishOrigin->ref_short,
+                    'holotype_loca' => $fishOrigin->holotype_loca,
+                    'holotype_loca_e' => $fishOrigin->holotype_loca_e,
+                    'maxlength' => intval(str_replace("cm", "", $fishOrigin->maxlenth)),
+                    'memo' => $fishOrigin->memo
                 ]);
                 $fishSpecies->save();
             }
@@ -93,12 +109,12 @@ class ReorganizeFishSpecies extends Command
         FishOrigin::chunk(200, function ($fishOrigins) {
             foreach ($fishOrigins as $fishOrigin) {
                 $fishSpecie = FishSpecies::find($fishOrigin->id);
-                $fishSpecie->depth_top = $fishOrigin->depth_upper;
+                $fishSpecie->top_depth = $fishOrigin->depth_upper;
                 $depthDown = $fishOrigin->depth_down;
                 if (!is_null($depthDown) && !is_numeric($depthDown)) {
                     $depthDown = 99999;
                 }
-                $fishSpecie->depth_bottom = $depthDown;
+                $fishSpecie->bottom_depth = $depthDown;
                 $fishSpecie->save();
             }
         });
