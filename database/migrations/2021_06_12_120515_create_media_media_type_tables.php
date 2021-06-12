@@ -15,12 +15,12 @@ class CreateMediaMediaTypeTables extends Migration
     {
         Schema::connection('mysql_new')->create('medias', function (Blueprint $table) {
             $table->id();
-            $table->string('filename', 50)->nullable()->comment('檔案名稱');
+            $table->string('filename', 255)->nullable()->comment('檔案名稱');
             $table->integer('fish_species_id')->nullable()->comment('魚種id');
             $table->tinyInteger('media_type')->nullable()->comment('媒體類型');
             $table->tinyInteger('is_publish')->nullable()->comment('是否已公開');
-            $table->string('author', 50)->nullable()->comment('作者');
-            $table->string('author_e', 50)->nullable()->comment('作者英文名');
+            $table->string('author', 255)->nullable()->comment('作者');
+            $table->string('author_e', 255)->nullable()->comment('作者英文名');
             $table->date('data_update_date')->nullable()->comment('圖片建立日期');
             $table->string('record_location', 255)->nullable()->comment('紀錄地點');
             $table->integer('top_depth')->nullable()->comment('最高棲息深度');
@@ -28,7 +28,7 @@ class CreateMediaMediaTypeTables extends Migration
             $table->string('photo_condition', 255)->nullable()->comment('內容描述');
             $table->string('remark', 255)->nullable()->comment('備註');
             $table->string('scientific_names', 255)->nullable()->comment('學名');
-            $table->string('identifier', 50)->nullable()->comment('鑑定者');
+            $table->string('identifier', 255)->nullable()->comment('鑑定者');
             $table->date('iden_date')->nullable()->comment('鑑定日期');
             $table->timestamps();
         });
