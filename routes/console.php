@@ -6,6 +6,7 @@ use App\Console\Commands\InitWorldDist;
 use App\Console\Commands\MapSpeciesWorldDist;
 use App\Console\Commands\ReorganizeFishSpecies;
 use App\Console\Commands\MapMany2ManyRelation;
+use App\Console\Commands\HandleMediaData;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,3 +62,13 @@ Artisan::command('fish:map-many2many-species-habitat', function () {
     $mapMany2ManyRelation = new MapMany2ManyRelation;
     $mapMany2ManyRelation->handleFishSpeciesHabitat();
 })->describe('Map relationship between species and habitat');
+
+Artisan::command('fish:init-media', function () {
+    $initMedia = new HandleMediaData;
+    $initMedia->handleMedia();
+})->describe('Init export data from origin media data to new media data');
+
+Artisan::command('fish:init-media-type', function () {
+    $initMedia = new HandleMediaData;
+    $initMedia->handleMediaType();
+})->describe('Init data from origin media_type to new media_type');
