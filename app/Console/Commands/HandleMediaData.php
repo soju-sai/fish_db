@@ -77,7 +77,7 @@ class HandleMediaData extends Command
                     'id' => $mediaOrigin->gid,
                     'filename' => $mediaOrigin->filename,
                     'fish_species_id' => $mediaOrigin->id,
-                    'media_type' => $mediaOrigin->mediatype,
+                    'media_type_id' => $mediaOrigin->mediatype,
                     'is_publish' => $mediaOrigin->is_publish,
                     'author' => $mediaOrigin->author,
                     'author_e' => $mediaOrigin->author_e,
@@ -89,7 +89,7 @@ class HandleMediaData extends Command
                     'remark' => $mediaOrigin->remark,
                     'scientific_names' => $mediaOrigin->science,
                     'identifier' => $mediaOrigin->identifier,
-                    'iden_date' => is_null($mediaOrigin->iden_date) ? NULL : date("Y-m-d", strtotime($mediaOrigin->iden_date))
+                    'iden_date' => empty($mediaOrigin->iden_date) ? NULL : date("Y-m-d", strtotime($mediaOrigin->iden_date))
                 ]);
                 $media->save();
             }

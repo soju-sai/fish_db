@@ -17,7 +17,7 @@ class CreateMediaMediaTypeTables extends Migration
             $table->id();
             $table->string('filename', 255)->nullable()->comment('檔案名稱');
             $table->integer('fish_species_id')->nullable()->comment('魚種id');
-            $table->tinyInteger('media_type')->nullable()->comment('媒體類型');
+            $table->tinyInteger('media_type_id')->nullable()->comment('媒體類型');
             $table->tinyInteger('is_publish')->nullable()->comment('是否已公開');
             $table->string('author', 255)->nullable()->comment('作者');
             $table->string('author_e', 255)->nullable()->comment('作者英文名');
