@@ -36,7 +36,7 @@ class CreateMediaMediaTypeTables extends Migration
         Schema::connection('mysql_new')->create('media_types', function (Blueprint $table) {
             $table->id();
             $table->string('type', 50);
-            $table->string('type_c', 50);
+            $table->string('type_e', 50);
             $table->timestamps();
         });
     }

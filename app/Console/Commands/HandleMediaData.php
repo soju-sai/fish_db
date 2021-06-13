@@ -101,4 +101,39 @@ class HandleMediaData extends Command
         echo 'It takes ' . $executionTime . " seconds to execute the script\n";
         return 0;
     }
+
+    /**
+     * Execute the console command.
+     *
+     * @return int
+     */
+    public function handleMediaType()
+    {
+        // execution timer
+        $startTime = microtime(true);
+
+        MediaTypeOrigin::chunk(200, function ($mediaTypeOrigins) {
+            foreach ($mediaTypeOrigins as $mediaTypeOrigin) {
+                $type = $mediaTypeOrigin->type;
+                $type_e = $mediaTypeOrigin->type_e;
+                if ($mediaTypeOrigin->type_id == 4) {
+                    $type = '精選圖';
+                    $type_e = 'Featured photo';
+                }
+
+                $mediaType = MediaType::create([
+                    'id' => $mediaTypeOrigin->type_id,
+                    'type' => $type,
+                    'type_e' => $type_e
+                ]);
+                $mediaType->save();
+            }
+        });
+
+        $endTime = microtime(true);
+        $executionTime = ($endTime - $startTime);
+
+        echo 'It takes ' . $executionTime . " seconds to execute the script\n";
+        return 0;
+    }
 }

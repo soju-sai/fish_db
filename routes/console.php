@@ -67,3 +67,8 @@ Artisan::command('fish:init-media', function () {
     $initMedia = new HandleMediaData;
     $initMedia->handleMedia();
 })->describe('Init export data from origin media data to new media data');
+
+Artisan::command('fish:init-media-type', function () {
+    $initMedia = new HandleMediaData;
+    $initMedia->handleMediaType();
+})->describe('Init data from origin media_type to new media_type');
