@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FishSpeciesController;
+use App\Http\Controllers\MediasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,4 @@ Route::get('/fish-n2m-fishtype', [FishSpeciesController::class, 'testManyToManyF
 Route::get('/fish-n2m-habitat', [FishSpeciesController::class, 'testManyToManyHabitat']);
 Route::get('/fish-export-csv', [FishSpeciesController::class, 'exportCsv']);
 Route::get('/fish-detail-csv', [FishSpeciesController::class, 'exportDetailCsv']);
+Route::get('/media-csv', [MediasController::class, 'exportCsv']);
