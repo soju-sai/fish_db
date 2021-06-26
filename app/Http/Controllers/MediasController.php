@@ -49,9 +49,10 @@ class MediasController extends Controller
                     $row[] = $media_type;
                     // ------- end -------
 
-                    $row[] = $value['is_publish'] == '1' ? '已公布' : '未公布';
-                    $row[] = $value['author'];
-                    $row[] = $value['author_e'];
+                    $is_publish = ($value['is_publish'] == '1' && !(strpos($value['author'], '©') !== false) ) ? '已公布' : '不公布';
+                    $row[] = $is_publish;
+                    $row[] = str_replace('©', '', $value['author']);
+                    $row[] = str_replace('©', '', $value['author_e']);
                     $row[] = $value['data_update_date'];
                     $row[] = $value['record_location'];
                     $bottom_depth = is_null($value['bottom_depth']) ? '' : ' - ' . $value['bottom_depth'];
@@ -59,7 +60,7 @@ class MediasController extends Controller
                     $row[] = $value['photo_condition'];
                     $row[] = $value['remark'];
                     $row[] = $value['scientific_names'];
-                    $row[] = $value['identifier'];
+                    $row[] = str_replace('&', '|', $value['identifier']);
                     $row[] = $value['iden_date'];
 
                     fputcsv($file, $row);
